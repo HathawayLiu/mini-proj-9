@@ -3,7 +3,7 @@ import transformers
 import tensorflow as tf
 from transformers import pipeline, set_seed
 set_seed(42)
-generator = pipeline('text-generation', model='gpt2-medium')
+generator = pipeline('text-generation', model='gpt2')
 def main():
     st.set_page_config(page_title="Q&A with Me!", page_icon=":question:", layout="wide")
 
