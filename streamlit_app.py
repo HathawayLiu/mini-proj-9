@@ -3,8 +3,8 @@ import transformers
 import tensorflow as tf
 from transformers import pipeline, set_seed
 set_seed(42)
-
 generator = pipeline('text-generation', model='gpt2-medium')
+@st.cache_data
 def main():
     st.set_page_config(page_title="Q&A with Me!", page_icon=":question:", layout="wide")
 
@@ -55,7 +55,7 @@ def main():
     if st.button("Generate Answer", key="generate_button"):
         if text_input:
             # Generate text with the language model
-            res = generator(text_input, max_length=199, num_return_sequences=5)
+            res = generator(text_input, max_length=70, num_return_sequences=5)
 
             # Initialize an HTML string for display
             html_content = "<div class='results'>"
